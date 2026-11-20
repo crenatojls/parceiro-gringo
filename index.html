@@ -38,10 +38,27 @@
     </style>
 </head>
 <body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-white min-h-screen transition-colors">
+    <!-- Bandeiras (SVG embutido, aparecem igual em qualquer aparelho) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="flag-uk" viewBox="0 0 60 30">
+            <rect width="60" height="30" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/>
+            <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </symbol>
+        <symbol id="flag-us" viewBox="0 0 38 20">
+            <rect width="38" height="20" fill="#fff"/>
+            <rect y="0.000" width="38" height="1.538" fill="#B22234"/><rect y="3.077" width="38" height="1.538" fill="#B22234"/><rect y="6.154" width="38" height="1.538" fill="#B22234"/><rect y="9.231" width="38" height="1.538" fill="#B22234"/><rect y="12.308" width="38" height="1.538" fill="#B22234"/><rect y="15.385" width="38" height="1.538" fill="#B22234"/><rect y="18.462" width="38" height="1.538" fill="#B22234"/>
+            <rect width="15.2" height="10.77" fill="#3C3B6E"/>
+            <circle cx="1.60" cy="1.20" r="0.5" fill="#fff"/><circle cx="4.50" cy="1.20" r="0.5" fill="#fff"/><circle cx="7.40" cy="1.20" r="0.5" fill="#fff"/><circle cx="10.30" cy="1.20" r="0.5" fill="#fff"/><circle cx="13.20" cy="1.20" r="0.5" fill="#fff"/><circle cx="1.60" cy="3.30" r="0.5" fill="#fff"/><circle cx="4.50" cy="3.30" r="0.5" fill="#fff"/><circle cx="7.40" cy="3.30" r="0.5" fill="#fff"/><circle cx="10.30" cy="3.30" r="0.5" fill="#fff"/><circle cx="13.20" cy="3.30" r="0.5" fill="#fff"/><circle cx="1.60" cy="5.40" r="0.5" fill="#fff"/><circle cx="4.50" cy="5.40" r="0.5" fill="#fff"/><circle cx="7.40" cy="5.40" r="0.5" fill="#fff"/><circle cx="10.30" cy="5.40" r="0.5" fill="#fff"/><circle cx="13.20" cy="5.40" r="0.5" fill="#fff"/><circle cx="1.60" cy="7.50" r="0.5" fill="#fff"/><circle cx="4.50" cy="7.50" r="0.5" fill="#fff"/><circle cx="7.40" cy="7.50" r="0.5" fill="#fff"/><circle cx="10.30" cy="7.50" r="0.5" fill="#fff"/><circle cx="13.20" cy="7.50" r="0.5" fill="#fff"/>
+        </symbol>
+    </svg>
     <div class="container mx-auto px-4 py-6 max-w-4xl">
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold mb-2 text-primary">🇬🇧 PARCEIRO GRINGO</h1>
+            <h1 class="text-4xl font-bold mb-2 text-primary">PARCEIRO GRINGO</h1>
+            <div class="flex items-center justify-center gap-3 mb-3"><svg class="inline-block h-6 w-12 rounded-sm shadow" viewBox="0 0 60 30" role="img" aria-label="Reino Unido"><use href="#flag-uk" xlink:href="#flag-uk"/></svg><svg class="inline-block h-6 w-[2.85rem] rounded-sm shadow" viewBox="0 0 38 20" role="img" aria-label="Estados Unidos"><use href="#flag-us" xlink:href="#flag-us"/></svg></div>
             <p class="text-gray-600 dark:text-gray-300">Pratique conversação em inglês com diálogos interativos</p>
         </div>
 
@@ -153,16 +170,56 @@
 
                 <!-- Voz -->
                 <div class="mt-6">
-                    <label class="block text-sm font-medium mb-3">Voz do App (sotaque britânico):</label>
+                    <label class="block text-sm font-medium mb-3">Sotaque da voz:</label>
                     <div class="grid grid-cols-2 gap-3">
                         <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-                            <input type="radio" name="voice" value="Google UK English Male" checked class="mr-3">
-                            <span>🧑 Masculina (George)</span>
+                            <input type="radio" name="accent" value="en-GB" checked class="mr-3">
+                            <span class="inline-flex items-center gap-2"><svg class="inline-block h-5 w-10 rounded-sm shadow" viewBox="0 0 60 30" role="img" aria-label="Reino Unido"><use href="#flag-uk" xlink:href="#flag-uk"/></svg>Britânico</span>
                         </label>
                         <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-                            <input type="radio" name="voice" value="Google UK English Female" class="mr-3">
-                            <span>👩 Feminina (Lily)</span>
+                            <input type="radio" name="accent" value="en-US" class="mr-3">
+                            <span class="inline-flex items-center gap-2"><svg class="inline-block h-5 w-[2.375rem] rounded-sm shadow" viewBox="0 0 38 20" role="img" aria-label="Estados Unidos"><use href="#flag-us" xlink:href="#flag-us"/></svg>Americano</span>
                         </label>
+                    </div>
+                </div>
+
+                <div id="genderBlock" class="mt-6">
+                    <label class="block text-sm font-medium mb-3">Tipo de voz do app:</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label id="genderMaleLabel" class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <input type="radio" name="gender" value="male" checked class="mr-3">
+                            <span>🧑 Masculina</span>
+                        </label>
+                        <label id="genderFemaleLabel" class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <input type="radio" name="gender" value="female" class="mr-3">
+                            <span>👩 Feminina</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <label for="voiceSelect" class="block text-sm font-medium mb-3">Voz disponível no seu aparelho:</label>
+                    <div class="flex items-center gap-2">
+                        <select id="voiceSelect"
+                                class="flex-1 min-w-0 text-base px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="auto">Automática (melhor disponível)</option>
+                        </select>
+                        <button onclick="testVoice()"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors whitespace-nowrap">
+                            🔊 Testar
+                        </button>
+                    </div>
+                    <p id="voiceHint" class="hidden text-xs text-amber-700 dark:text-amber-300 mt-2"></p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">⭐ = voz de melhor qualidade (mais natural). As vozes disponíveis dependem do seu aparelho e navegador. No modo Escutar, o app tenta usar vozes diferentes para cada personagem.</p>
+                </div>
+
+                <div class="mt-6">
+                    <label class="block text-sm font-medium mb-3">Velocidade da voz: <span id="rateLabel" class="text-primary font-semibold">Normal (1x)</span></label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button type="button" data-rate="0.5" onclick="setRate(0.5)" class="speed-btn py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors">0.5x</button>
+                        <button type="button" data-rate="0.75" onclick="setRate(0.75)" class="speed-btn py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors">0.75x</button>
+                        <button type="button" data-rate="1" onclick="setRate(1)" class="speed-btn py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors">1x</button>
+                        <button type="button" data-rate="1.25" onclick="setRate(1.25)" class="speed-btn py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors">1.25x</button>
                     </div>
                 </div>
 
@@ -184,6 +241,17 @@
                     <button onclick="resetApp()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
                         🔄 Reiniciar
                     </button>
+                </div>
+
+                <!-- Velocidade da voz (atalho) -->
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">🐢 Velocidade:</span>
+                    <div class="grid grid-cols-4 gap-2 flex-1">
+                        <button type="button" data-rate="0.5" onclick="setRate(0.5)" class="speed-btn py-1 rounded-lg text-xs border border-gray-300 dark:border-gray-600 transition-colors">0.5x</button>
+                        <button type="button" data-rate="0.75" onclick="setRate(0.75)" class="speed-btn py-1 rounded-lg text-xs border border-gray-300 dark:border-gray-600 transition-colors">0.75x</button>
+                        <button type="button" data-rate="1" onclick="setRate(1)" class="speed-btn py-1 rounded-lg text-xs border border-gray-300 dark:border-gray-600 transition-colors">1x</button>
+                        <button type="button" data-rate="1.25" onclick="setRate(1.25)" class="speed-btn py-1 rounded-lg text-xs border border-gray-300 dark:border-gray-600 transition-colors">1.25x</button>
+                    </div>
                 </div>
 
                 <!-- Área de conversa -->
@@ -212,6 +280,8 @@
                                     ⏭️ Pular
                                 </button>
                             </div>
+
+                            <div id="micError" class="hidden text-sm text-red-600 dark:text-red-400"></div>
 
                             <div id="speechFeedback" class="hidden">
                                 <div id="recognizedText" class="bg-gray-100 dark:bg-gray-700 p-3 rounded border text-sm"></div>
@@ -270,11 +340,283 @@
         let characters = [];
         let currentLineIndex = 0;
         let userCharacter = '';
-        let appVoice = 'Google UK English Male';
         let practiceMode = 'conversation';
         let recognition;
         let isListening = false;
         let showTranslation = true;
+
+        // =====================================================
+        // VOZ: sotaque, velocidade e vozes reais do aparelho
+        // =====================================================
+        let appAccent = 'en-GB';     // 'en-GB' ou 'en-US'
+        let appGender = 'male';      // 'male' ou 'female' (quando o aparelho permitir identificar)
+        let appRate = 1;             // 0.5 | 0.75 | 1 | 1.25
+        let voiceChoice = 'auto';    // 'auto' ou chave "nome|idioma" de uma voz específica
+        let allVoices = [];          // vozes em inglês disponíveis (já ordenadas por qualidade)
+        let voiceMap = {};           // personagem -> { voice, pitch }
+        let sessionId = 0;           // invalida falas pendentes ao reiniciar
+        let isPlayingFull = false;
+        let rawVoiceCount = -1;
+
+        const RATE_LABELS = { '0.5': 'Muito lenta', '0.75': 'Lenta', '1': 'Normal', '1.25': 'Rápida' };
+
+        // Vozes "de brincadeira" do iOS/macOS que não servem para estudo
+        const NOVELTY_VOICES = ['albert','bad','bahh','bells','boing','bubbles','cellos','deranged','good','hysterical','jester','organ','superstar','trinoids','whisper','wobble','zarvox','pipe','junior','kathy','ralph','princess','fred','grandma','grandpa','eddy','flo','reed','rocko','sandy','shelley'];
+
+        // O navegador NÃO informa o gênero da voz; só dá para deduzir pelo nome
+        const MALE_VOICE_NAMES = ['george','daniel','oliver','arthur','rishi','alex','aaron','gordon','thomas','guy','ryan','davis','christopher','eric','roger','steffan','brian','mark','james','richard','david','andrew','brandon','jason','tony','liam','noah','ethan','sean','connor','tom','lee','neil','ravi','prabhat','william','jacob','john','mike','paul','ronan','wayne','jon','jorge'];
+        const FEMALE_VOICE_NAMES = ['kate','serena','samantha','karen','moira','tessa','victoria','susan','hazel','libby','sonia','maisie','zira','jenny','aria','emma','michelle','ava','allison','nicky','joanna','amy','lily','ashley','sara','jane','nancy','jessa','catherine','fiona','veena','heather','linda','natasha','olivia','martha','stephanie','abbi','bella','elizabeth','hollie','holly','jessica','mia','sally','salli','kimberly','kendra','ivy','laura','lisa','siri','claire','clara','evelyn','grace'];
+
+        // Palpite do gênero do personagem pelo nome (usado no modo Escutar)
+        const FEMALE_CHAR_NAMES = ['emma','mary','anna','ana','maria','sarah','sara','lisa','julia','juliana','laura','kate','katie','emily','olivia','sophie','sophia','alice','lucy','lily','jessica','jennifer','jane','susan','linda','karen','amanda','carol','carolina','fernanda','patricia','paula','bianca','beatriz','camila','mia','ella','grace','hannah','rachel','rebecca','nancy','betty','helen','nicole','samantha','megan','claire','chloe','amy','anne','mother','mom','mum','woman','girl','waitress','lady','mrs','ms','miss'];
+        const MALE_CHAR_NAMES = ['carlos','john','tom','mike','michael','david','james','peter','paul','mark','jack','bob','robert','tim','steve','daniel','george','harry','charlie','oliver','william','joe','joseph','ben','luke','matt','chris','kevin','brian','jim','dave','richard','andrew','anthony','antonio','joao','pedro','lucas','rafael','bruno','marcos','rodrigo','ricardo','felipe','gabriel','mr','father','dad','man','boy','waiter','sir','guy'];
+
+        function wordsOf(s) {
+            return String(s).toLowerCase().split(/[^a-zà-ÿ]+/).filter(Boolean);
+        }
+
+        function voiceGender(v) {
+            const name = v.name.toLowerCase();
+            if (/\bfemale\b/.test(name)) return 'female';
+            if (/\bmale\b/.test(name)) return 'male';
+            if (name.includes('google us english')) return 'female';
+            const w = wordsOf(name);
+            if (w.some(x => FEMALE_VOICE_NAMES.includes(x))) return 'female';
+            if (w.some(x => MALE_VOICE_NAMES.includes(x))) return 'male';
+            return null;
+        }
+
+        function guessNameGender(name) {
+            const w = wordsOf(name);
+            if (w.some(x => FEMALE_CHAR_NAMES.includes(x))) return 'female';
+            if (w.some(x => MALE_CHAR_NAMES.includes(x))) return 'male';
+            return null;
+        }
+
+        function normLang(v) { return (v.lang || '').replace('_', '-').toLowerCase(); }
+        function vKey(v) { return v.name + '|' + v.lang; }
+
+        function voiceScore(v) {
+            const n = v.name.toLowerCase();
+            let s = 0;
+            if (/natural|neural/.test(n)) s += 50;
+            if (/premium|enhanced/.test(n)) s += 40;
+            if (n.includes('google')) s += 20;
+            if (n.includes('siri')) s += 30;
+            if (v.localService === false) s += 5;
+            if (/compact/.test(n)) s -= 10;
+            if (/espeak/.test(n)) s -= 30;
+            return s;
+        }
+
+        function isNovelty(v) {
+            return wordsOf(v.name).some(x => NOVELTY_VOICES.includes(x));
+        }
+
+        function refreshVoices() {
+            if (!('speechSynthesis' in window)) { renderVoiceUI(); return; }
+            const raw = speechSynthesis.getVoices() || [];
+            rawVoiceCount = raw.length;
+            allVoices = raw
+                .filter(v => /^en([-_]|$)/i.test(v.lang || '') && !isNovelty(v))
+                .sort((a, b) => voiceScore(b) - voiceScore(a) || a.name.localeCompare(b.name));
+            renderVoiceUI();
+        }
+
+        // Vozes do sotaque escolhido (se o aparelho não tiver, mostra qualquer voz em inglês)
+        function accentVoices() {
+            const a = appAccent.toLowerCase();
+            const exact = allVoices.filter(v => normLang(v) === a);
+            return exact.length ? exact : allVoices;
+        }
+
+        function getPrimaryVoice() {
+            const list = accentVoices();
+            if (voiceChoice !== 'auto') {
+                const chosen = list.find(v => vKey(v) === voiceChoice) || allVoices.find(v => vKey(v) === voiceChoice);
+                if (chosen) return chosen;
+            }
+            return list.find(v => voiceGender(v) === appGender) || list[0] || allVoices[0] || null;
+        }
+
+        // Define qual voz fala cada personagem
+        function buildVoiceMap() {
+            voiceMap = {};
+            const primary = getPrimaryVoice();
+            const list = accentVoices();
+
+            if (practiceMode !== 'listen' || characters.length < 2 || !list.length) {
+                characters.forEach(c => { voiceMap[c] = { voice: primary, pitch: 1 }; });
+                return;
+            }
+
+            // Modo Escutar: vozes diferentes para cada personagem
+            const used = new Set();
+            const take = pred => {
+                const v = list.find(x => !used.has(vKey(x)) && pred(x));
+                if (v) used.add(vKey(v));
+                return v;
+            };
+            const pitches = [1, 1.2, 0.85, 1.1];
+
+            characters.forEach((c, i) => {
+                const g = guessNameGender(c);
+                let v = g ? take(x => voiceGender(x) === g) : null;
+                if (!v && i === 0 && primary && !used.has(vKey(primary))) {
+                    used.add(vKey(primary));
+                    v = primary;
+                }
+                if (!v) v = take(() => true);
+                if (v) {
+                    voiceMap[c] = { voice: v, pitch: 1 };
+                } else {
+                    // Só existe uma voz no aparelho: diferencia pelo tom
+                    voiceMap[c] = { voice: primary, pitch: pitches[i % pitches.length] };
+                }
+            });
+        }
+
+        function speakWith(voice, pitch, text) {
+            return new Promise(resolve => {
+                if (!('speechSynthesis' in window)) { resolve(); return; }
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = voice ? voice.lang : appAccent;
+                if (voice) utter.voice = voice;
+                utter.rate = appRate;
+                utter.pitch = pitch || 1;
+                utter.onend = () => resolve();
+                utter.onerror = () => resolve();
+                speechSynthesis.speak(utter);
+            });
+        }
+
+        function speakText(text, character) {
+            const entry = voiceMap[character] || { voice: getPrimaryVoice(), pitch: 1 };
+            return speakWith(entry.voice, entry.pitch, text);
+        }
+
+        function testVoice() {
+            if (!('speechSynthesis' in window)) {
+                showAlert('Este navegador não suporta voz.');
+                return;
+            }
+            speechSynthesis.cancel();
+            const v = getPrimaryVoice();
+            setTimeout(() => speakWith(v, 1, 'Hello! This is how I sound. Nice to meet you.'), 80);
+        }
+
+        // ---------- Interface das vozes ----------
+        function renderVoiceUI() {
+            const sel = document.getElementById('voiceSelect');
+            if (!sel) return;
+
+            const list = accentVoices();
+            const exact = allVoices.some(v => normLang(v) === appAccent.toLowerCase());
+            const hasMale = list.some(v => voiceGender(v) === 'male');
+            const hasFemale = list.some(v => voiceGender(v) === 'female');
+
+            // Tipo de voz (masculina/feminina): só aparece se o aparelho permitir identificar
+            const genderBlock = document.getElementById('genderBlock');
+            if (!hasMale && !hasFemale) {
+                genderBlock.classList.add('hidden');
+            } else {
+                genderBlock.classList.remove('hidden');
+                if (appGender === 'male' && !hasMale) appGender = 'female';
+                if (appGender === 'female' && !hasFemale) appGender = 'male';
+                const maleRadio = document.querySelector('input[name="gender"][value="male"]');
+                const femaleRadio = document.querySelector('input[name="gender"][value="female"]');
+                maleRadio.disabled = !hasMale;
+                femaleRadio.disabled = !hasFemale;
+                document.getElementById('genderMaleLabel').classList.toggle('opacity-40', !hasMale);
+                document.getElementById('genderFemaleLabel').classList.toggle('opacity-40', !hasFemale);
+                (appGender === 'male' ? maleRadio : femaleRadio).checked = true;
+            }
+
+            // Lista de vozes
+            sel.innerHTML = '';
+            const auto = document.createElement('option');
+            auto.value = 'auto';
+            auto.textContent = 'Automática (melhor disponível)';
+            sel.appendChild(auto);
+            list.forEach((v, i) => {
+                const g = voiceGender(v);
+                const o = document.createElement('option');
+                o.value = vKey(v);
+                o.textContent = `${i + 1}. ${v.name}${g ? (g === 'male' ? ' ♂' : ' ♀') : ''}${voiceScore(v) >= 20 ? ' ⭐' : ''}`;
+                sel.appendChild(o);
+            });
+            if (voiceChoice !== 'auto' && !list.some(v => vKey(v) === voiceChoice)) voiceChoice = 'auto';
+            sel.value = voiceChoice;
+
+            // Avisos
+            const hint = document.getElementById('voiceHint');
+            let msg = '';
+            const accentName = appAccent === 'en-GB' ? 'britânico' : 'americano';
+            if (!allVoices.length) {
+                msg = rawVoiceCount === 0
+                    ? 'Carregando as vozes do aparelho... Se nada aparecer, verifique se há uma voz em inglês instalada nas configurações de texto para fala do celular.'
+                    : 'Nenhuma voz em inglês encontrada neste aparelho. Verifique as configurações de texto para fala do celular.';
+            } else if (!exact) {
+                msg = `Este aparelho não tem voz em inglês ${accentName} instalada. Mostrando outras vozes em inglês.`;
+            } else if (!hasMale && !hasFemale) {
+                msg = 'Este aparelho não informa se as vozes são masculinas ou femininas. Use o botão Testar para escolher a que preferir.';
+            }
+            hint.textContent = msg;
+            hint.classList.toggle('hidden', !msg);
+        }
+
+        function updateSpeedButtons() {
+            document.querySelectorAll('.speed-btn').forEach(btn => {
+                const active = Math.abs(parseFloat(btn.dataset.rate) - appRate) < 0.001;
+                ['bg-primary', 'text-white', 'border-primary'].forEach(c => btn.classList.toggle(c, active));
+                ['hover:bg-gray-100', 'dark:hover:bg-gray-700'].forEach(c => btn.classList.toggle(c, !active));
+            });
+            const label = document.getElementById('rateLabel');
+            if (label) label.textContent = `${RATE_LABELS[String(appRate)] || ''} (${appRate}x)`;
+        }
+
+        function setRate(r) {
+            appRate = r;
+            updateSpeedButtons();
+            savePrefs();
+        }
+
+        function savePrefs() {
+            try {
+                localStorage.setItem('parceiroGringoPrefs', JSON.stringify({ appAccent, appGender, appRate, voiceChoice }));
+            } catch (e) { /* armazenamento indisponível: ignora */ }
+        }
+
+        function loadPrefs() {
+            try {
+                const p = JSON.parse(localStorage.getItem('parceiroGringoPrefs') || 'null');
+                if (!p) return;
+                if (p.appAccent === 'en-GB' || p.appAccent === 'en-US') appAccent = p.appAccent;
+                if (p.appGender === 'male' || p.appGender === 'female') appGender = p.appGender;
+                if ([0.5, 0.75, 1, 1.25].includes(p.appRate)) appRate = p.appRate;
+                if (typeof p.voiceChoice === 'string') voiceChoice = p.voiceChoice;
+            } catch (e) { /* ignora */ }
+        }
+
+        function initVoices() {
+            loadPrefs();
+            document.querySelector(`input[name="accent"][value="${appAccent}"]`).checked = true;
+            document.querySelector(`input[name="gender"][value="${appGender}"]`).checked = true;
+            updateSpeedButtons();
+
+            if (!('speechSynthesis' in window)) { renderVoiceUI(); return; }
+
+            refreshVoices();
+            speechSynthesis.addEventListener('voiceschanged', refreshVoices);
+
+            // Alguns navegadores de celular demoram a carregar (ou nunca avisam): confere por alguns segundos
+            let tries = 0;
+            const timer = setInterval(() => {
+                tries++;
+                if (speechSynthesis.getVoices().length !== rawVoiceCount) refreshVoices();
+                if (allVoices.length || tries > 25) clearInterval(timer);
+            }, 300);
+        }
 
         function showAlert(msg) {
             alert(msg);
@@ -351,8 +693,27 @@
                 document.getElementById('characterSelection').style.display =
                     practiceMode === 'conversation' ? 'block' : 'none';
             }
-            if (e.target.name === 'voice') {
-                appVoice = e.target.value;
+            if (e.target.name === 'accent') {
+                appAccent = e.target.value;
+                voiceChoice = 'auto';
+                renderVoiceUI();
+                savePrefs();
+            }
+            if (e.target.name === 'gender') {
+                appGender = e.target.value;
+                voiceChoice = 'auto';
+                renderVoiceUI();
+                savePrefs();
+            }
+            if (e.target.id === 'voiceSelect') {
+                voiceChoice = e.target.value;
+                if (voiceChoice !== 'auto') {
+                    const v = accentVoices().find(x => vKey(x) === voiceChoice);
+                    const g = v ? voiceGender(v) : null;
+                    if (g) appGender = g;
+                }
+                renderVoiceUI();
+                savePrefs();
             }
         });
 
@@ -377,6 +738,7 @@
             try {
                 let successCount = 0;
                 let failCount = 0;
+                translateErrors = {};
                 
                 translatedData = [];
                 
@@ -387,7 +749,7 @@
                     
                     try {
                         const translatedText = await translateWithFallback(line.dialog);
-                        if (translatedText && translatedText !== line.dialog) {
+                        if (translatedText) {
                             successCount++;
                             translatedData.push({ character: line.character, dialog: translatedText });
                         } else {
@@ -418,7 +780,11 @@
                 if (failCount === 0) {
                     statusText.textContent = `✅ Tradução concluída! Todas as ${successCount} linhas foram traduzidas com sucesso.`;
                 } else {
-                    statusText.textContent = `⚠️ Tradução parcial: ${successCount} linhas traduzidas, ${failCount} falhas.`;
+                    const details = Object.entries(translateErrors).map(([k, v]) => `${k}: ${v}`).join(' | ');
+                    statusText.className = 'text-sm text-red-700 dark:text-red-300';
+                    statusText.textContent = successCount === 0
+                        ? `❌ Não foi possível traduzir. Verifique sua conexão e tente novamente. (${details})`
+                        : `⚠️ Tradução parcial: ${successCount} linhas traduzidas, ${failCount} falhas. (${details})`;
                 }
 
             } catch (error) {
@@ -431,124 +797,72 @@
             }
         }
 
+        // Último erro de cada serviço (aparece no status para facilitar o diagnóstico)
+        let translateErrors = {};
+
+        async function fetchWithTimeout(url, options = {}, ms = 8000) {
+            const ctrl = new AbortController();
+            const t = setTimeout(() => ctrl.abort(), ms);
+            try {
+                return await fetch(url, { ...options, signal: ctrl.signal });
+            } finally {
+                clearTimeout(t);
+            }
+        }
+
         async function translateWithFallback(text) {
-            // Método 1: DeepL API (mais confiável para frases completas)
-            try {
-                const translated = await translateDeepL(text);
-                if (translated && translated !== text) {
-                    return translated;
+            const providers = [
+                ['Google', translateGoogleImproved],
+                ['MyMemory', translateMyMemory],
+                ['Lingva', translateLingva]
+            ];
+            for (const [name, fn] of providers) {
+                for (let attempt = 0; attempt < 2; attempt++) {
+                    try {
+                        const result = await fn(text);
+                        if (result) return result;
+                        translateErrors[name] = 'resposta vazia';
+                        break;
+                    } catch (error) {
+                        translateErrors[name] = error.name === 'AbortError' ? 'tempo esgotado' : (error.message || String(error));
+                        await new Promise(r => setTimeout(r, 400));
+                    }
                 }
-            } catch (error) {
-                console.warn('DeepL falhou:', error);
             }
-
-            // Método 2: Google Translate API
-            try {
-                const translated = await translateGoogleImproved(text);
-                if (translated && translated !== text) {
-                    return translated;
-                }
-            } catch (error) {
-                console.warn('Google Translate falhou:', error);
-            }
-
-            // Método 3: MyMemory API (fallback)
-            try {
-                const translated = await translateMyMemory(text);
-                if (translated && translated !== text) {
-                    return translated;
-                }
-            } catch (error) {
-                console.warn('MyMemory Translate falhou:', error);
-            }
-
             return null;
         }
 
-        async function translateDeepL(text) {
-            try {
-                // Usando a API gratuita do DeepL (limite de 500,000 chars/mês)
-                const authKey = 'fd5c0a72-5f56-4de8-8e00-91281f812a2b:fx'; // Chave gratuita
-                const url = 'https://api-free.deepl.com/v2/translate';
-                
-                const params = new URLSearchParams({
-                    auth_key: authKey,
-                    text: text,
-                    target_lang: 'PT',
-                    source_lang: 'EN'
-                });
-
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: params
-                });
-                
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                
-                const data = await res.json();
-                const translated = data.translations?.[0]?.text;
-                
-                if (translated && translated !== text) {
-                    return translated;
-                }
-                return null;
-            } catch (error) {
-                console.warn('Erro DeepL Translate:', error);
-                return null;
-            }
-        }
-
         async function translateGoogleImproved(text) {
-            try {
-                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q=${encodeURIComponent(text)}`;
-                const res = await fetch(url);
-                
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                
-                const json = await res.json();
-                
-                // Processar todas as partes da tradução
-                let fullTranslation = '';
-                if (json && json[0]) {
-                    for (const item of json[0]) {
-                        if (item[0]) {
-                            fullTranslation += item[0];
-                        }
-                    }
+            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q=${encodeURIComponent(text)}`;
+            const res = await fetchWithTimeout(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            let full = '';
+            if (json && json[0]) {
+                for (const item of json[0]) {
+                    if (item && item[0]) full += item[0];
                 }
-                
-                // Validar se a tradução é significativamente diferente do original
-                if (fullTranslation && fullTranslation !== text && fullTranslation.length > 0) {
-                    return fullTranslation;
-                }
-                return null;
-            } catch (error) {
-                console.warn('Erro Google Translate:', error);
-                return null;
             }
+            return full.trim() || null;
         }
 
         async function translateMyMemory(text) {
-            try {
-                const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|pt`;
-                const res = await fetch(url);
-                
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                
-                const json = await res.json();
-                const translated = json.responseData?.translatedText;
-                
-                if (translated && translated !== text && !translated.includes('MYMEMORY WARNING')) {
-                    return translated;
-                }
-                return null;
-            } catch (error) {
-                console.warn('Erro MyMemory Translate:', error);
-                return null;
-            }
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|pt-BR`;
+            const res = await fetchWithTimeout(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            const translated = json.responseData?.translatedText;
+            if (!translated) return null;
+            if (translated.includes('MYMEMORY WARNING')) throw new Error('limite diário atingido');
+            return translated.trim();
+        }
+
+        async function translateLingva(text) {
+            const url = `https://lingva.plweb.me/api/v1/en/pt/${encodeURIComponent(text)}`;
+            const res = await fetchWithTimeout(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            return (json.translation || '').trim() || null;
         }
 
         function displayTranslatedDialog() {
@@ -596,6 +910,11 @@
                 initSpeechRecognition();
             }
 
+            sessionId++;
+            isPlayingFull = false;
+            if ('speechSynthesis' in window) speechSynthesis.cancel();
+            buildVoiceMap();
+
             currentLineIndex = 0;
             document.getElementById('dialogHistory').innerHTML = '';
             updateProgress();
@@ -635,10 +954,12 @@
                 // Vez do app: fala e avança automaticamente
                 document.getElementById('currentTurn').classList.add('hidden');
                 addDialogLine(line.character, line.dialog, currentLineIndex);
-                speakText(line.dialog).then(() => {
+                const sid = sessionId;
+                speakText(line.dialog, line.character).then(() => {
+                    if (sid !== sessionId) return;
                     currentLineIndex++;
                     updateProgress();
-                    setTimeout(showNextTurn, 500);
+                    setTimeout(() => { if (sid === sessionId) showNextTurn(); }, 500);
                 });
             }
         }
@@ -670,31 +991,17 @@
             history.scrollTop = history.scrollHeight;
         }
 
-        function speakText(text) {
-            return new Promise(resolve => {
-                if (!('speechSynthesis' in window)) {
-                    resolve();
-                    return;
-                }
-                const utter = new SpeechSynthesisUtterance(text);
-                utter.lang = 'en-GB';
-                utter.rate = 0.9;
-
-                const voices = speechSynthesis.getVoices();
-                let v = voices.find(voice => voice.name === appVoice);
-                if (!v) v = voices.find(voice => voice.lang === 'en-GB') || voices.find(voice => voice.lang.startsWith('en'));
-                if (v) utter.voice = v;
-
-                utter.onend = () => resolve();
-                utter.onerror = () => resolve();
-                speechSynthesis.speak(utter);
-            });
+        // Reconhecimento de voz (opcional)
+        function showMicError(msg) {
+            const el = document.getElementById('micError');
+            if (!el) return;
+            el.textContent = msg;
+            el.classList.toggle('hidden', !msg);
         }
 
-        // Reconhecimento de voz (opcional)
         function initSpeechRecognition() {
             const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SR) return;
+            if (!SR) { recognition = null; return; }
             recognition = new SR();
             recognition.continuous = false;
             recognition.interimResults = false;
@@ -702,11 +1009,25 @@
 
             recognition.onstart = () => {
                 isListening = true;
+                showMicError('');
                 document.getElementById('listenBtn').textContent = '🎤 Ouvindo...';
             };
             recognition.onend = () => {
                 isListening = false;
                 document.getElementById('listenBtn').textContent = '🎤 Começar a Falar';
+            };
+            recognition.onerror = e => {
+                isListening = false;
+                document.getElementById('listenBtn').textContent = '🎤 Começar a Falar';
+                const messages = {
+                    'not-allowed': 'Microfone bloqueado. Permita o acesso ao microfone no navegador (ícone ao lado do endereço do site) e tente de novo.',
+                    'service-not-allowed': 'O navegador não liberou o reconhecimento de voz. Permita o microfone e tente de novo.',
+                    'no-speech': 'Não ouvi nada. Fale mais perto do microfone e tente de novo.',
+                    'audio-capture': 'Nenhum microfone foi encontrado neste aparelho.',
+                    'network': 'Sem conexão com o serviço de voz do navegador. Verifique a internet.'
+                };
+                if (e.error === 'aborted') return;
+                showMicError(messages[e.error] || `Não foi possível usar o microfone (${e.error}).`);
             };
             recognition.onresult = e => {
                 const text = e.results[0][0].transcript;
@@ -716,8 +1037,28 @@
         }
 
         function startListening() {
-            if (!recognition || isListening) return;
-            recognition.start();
+            showMicError('');
+            if (!recognition) {
+                showMicError('Este navegador não suporta reconhecimento de voz. Use o Google Chrome ou o Edge.');
+                return;
+            }
+            // Se já estiver ouvindo, toque de novo para parar
+            if (isListening) {
+                try { recognition.stop(); } catch (e) { isListening = false; }
+                return;
+            }
+            try {
+                recognition.start();
+            } catch (e) {
+                // Estado preso: recria o reconhecimento e tenta de novo
+                isListening = false;
+                initSpeechRecognition();
+                try {
+                    recognition.start();
+                } catch (e2) {
+                    showMicError('Não foi possível iniciar o microfone. Recarregue a página e tente de novo.');
+                }
+            }
         }
 
         function confirmSpeech() {
@@ -747,20 +1088,26 @@
 
         function speakUserLine() {
             const line = dialogData[currentLineIndex];
-            speakText(line.dialog);
+            speakText(line.dialog, userCharacter);
         }
 
         // Listen mode
         function playFullDialog() {
+            if (isPlayingFull) return;
+            isPlayingFull = true;
+            const sid = sessionId;
             let i = currentLineIndex;
             const playNext = () => {
+                if (sid !== sessionId) return;
                 if (i >= dialogData.length) {
+                    isPlayingFull = false;
                     showCompletionMessage();
                     return;
                 }
                 const line = dialogData[i];
                 addDialogLine(line.character, line.dialog, i);
-                speakText(line.dialog).then(() => {
+                speakText(line.dialog, line.character).then(() => {
+                    if (sid !== sessionId) return;
                     currentLineIndex = i + 1;
                     updateProgress();
                     i++;
@@ -772,7 +1119,7 @@
 
         function playCurrentLine() {
             if (currentLineIndex < dialogData.length) {
-                speakText(dialogData[currentLineIndex].dialog);
+                speakText(dialogData[currentLineIndex].dialog, dialogData[currentLineIndex].character);
             }
         }
 
@@ -800,6 +1147,9 @@
         }
 
         function resetApp() {
+            sessionId++;
+            isPlayingFull = false;
+            if ('speechSynthesis' in window) speechSynthesis.cancel();
             dialogData = [];
             translatedData = [];
             characters = [];
@@ -819,7 +1169,7 @@
 
         // inicial
         showStep(1);
-        speechSynthesis.getVoices();
+        initVoices();
     </script>
 </body>
 </html>
